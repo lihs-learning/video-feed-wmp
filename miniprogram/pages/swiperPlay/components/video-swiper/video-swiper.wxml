@@ -1,0 +1,30 @@
+<import src="./templates/player.wxml" />
+
+<view class="container">
+  <swiper
+    class="video-swiper"
+    circular="{{circular}}"
+    easing-function="{{easingFunction}}"
+    vertical
+    duration="{{duration}}"
+    bindanimationfinish="handleAnimationFinish">
+    <swiper-item>
+      <template
+        is="videoPlayerSlide"
+        data="{{videoElementId: 'video_element_1', loop: loop, slideContent: currentSlides[0], slideState: slideStates[0]}}"
+      />
+    </swiper-item>
+    <swiper-item>
+      <template
+        is="videoPlayerSlide"
+        data="{{videoElementId: 'video_element_2', loop: loop, slideContent: currentSlides[1], slideState: slideStates[1]}}"
+      />
+    </swiper-item>
+    <swiper-item>
+      <template
+        is="videoPlayerSlide"
+        data="{{videoElementId: 'video_element_3', loop: loop, slideContent: currentSlides[2], slideState: slideStates[2]}}"
+      />
+    </swiper-item>
+  </swiper>
+</view>

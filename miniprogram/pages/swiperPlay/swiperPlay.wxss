@@ -1,0 +1,50 @@
+/* TODO: reset wxss */
+image {
+  background: none;
+}
+
+/* Page Style */
+
+page {
+  position: relative;
+  height: 100%;
+  background: #000000;
+}
+
+.nav-back {
+  position: absolute;
+  top: 30rpx;
+  left: 30rpx;
+  z-index: 200;
+  color: #FFFFFF;
+  /* TODO: 按钮样式 */
+  /*
+  box-sizing: border-box;
+  width: 54rpx;
+  height: 54rpx;
+  padding: 10rpx;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2rpx solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  */
+}
+
+.video-swiper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.watermark {
+  position: absolute;
+  bottom: 300rpx;
+  right: 100rpx;
+  z-index: 200;
+  color: #FFFFFF;
+}
+

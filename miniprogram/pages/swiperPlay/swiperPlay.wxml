@@ -1,0 +1,27 @@
+<view>
+  <view class="nav-back" style="top: calc(30px + {{safePositionTop}}rpx);" bindtap="handleTapBack">
+    返回
+  </view>
+  <video-swiper
+    class="video-swiper"
+    style="bottom: {{safePositionBottom}}rpx;"
+    easing-function="easeOutCubic"
+    duration="{{400}}"
+    content-list="{{contentList}}"
+    bindOnTapAuthorInfo="handleTapAuthorInfo"
+    bindOnTapCommentBtn="handleTapCommentBtn"
+    bindOnTapFavorBtn="handleTapFavorBtn"
+    bindOnPlay="handlePlay"
+    bindOnPause="handlePause"
+    bindOnUserPause="handleUserPause"
+    bindOnEnded="handleEnded"
+    bindOnError="handleError"
+    bindOnWaiting="handleWaiting"
+    bindOnLoadedMetadata="handleLoadedMetaData"
+    bindOnChange="handleSlideChange"
+    bindOnAdError="handleAdError"
+  />
+  <view class="watermark">
+    你好呀～我是讨厌的水印！
+  </view>
+</view>

@@ -1,0 +1,77 @@
+<template name="videoPlayerSlide">
+  <view class="video-swiper-item">
+    <video
+      id="{{videoElementId}}"
+      class="video_item"
+      loop="{{loop}}"
+      enable-progress-gesture="{{true}}"
+      show-center-play-btn="{{false}}"
+      controls="{{false}}"
+      src="{{slideContent.vUrl}}"
+      data-id="{{slideContent.id}}"
+      object-fit="{{slideContent.objectFit || 'contain'}}"
+      bindtap="handleTapVideo"
+      bindplay="handlePlay"
+      bindpause="handlePause"
+      bindended="handleEnded"
+      binderror="handleError"
+      bindtimeupdate="handleTimeUpdate"
+      bindwaiting="handleWaiting"
+      bindprogress="handleProgress"
+      bindloadedmetadata="handleLoadedMetaData"
+    />
+    <view wx:if="{{slideContent.title}}" class="title-cover">
+      {{slideContent.title}}
+    </view>
+    <!-- <view wx:else class="title-cover">
+      这个视频太好看了，千万不要错！！！保证你合不拢嘴乐一整天！调试样式用
+    </view> -->
+    <view class="bottom-cover">
+      <view class="content-info" bindtap="handleTapAuthorInfo">
+        <view class="avatar-container">
+          <image class="avatar" src="{{slideContent.authorAvatarUrl}}"/>
+        </view>
+        <view class="nickname">
+          {{slideContent.authorNick}}
+        </view>
+      </view>
+      <view class="ux-btns">
+        <button open-type="share" class="share-btn">
+          <view class="share-icon {{slideState.shareAnimating ? 'animating' : ''}}">
+            <image class="wechat-icon" src="/static/img/share_icon_wx_white.png" />
+          </view>
+          <text class="share-txt">{{slideContent.shareCount}}</text>
+        </button>
+        <view
+          class="favor-btn"
+          bindtap="handleTapFavorBtn"
+        >
+          <image class="favor-icon {{slideState.favorAnimating ? 'animating' : ''}}" src="{{slideContent.isFavored ? '/static/img/favor_icon-B.png' : '/static/img/favor_icon-A.png'}}" />
+          <text class="favor-txt">{{slideContent.isFavored ? '已赞' : slideContent.favorCount}}</text>
+        </view>
+        <view
+          class="comment-btn"
+          bindtap="handleTapCommentBtn"
+        >
+          <image class="comment-icon" src="/static/img/comment_icon.png" />
+          <text class="comment-txt">{{slideContent.commentCount}}</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{slideContent.type === 'ad' && !slideContent.isErrored}}" class="ad-container">
+      <ad-custom
+        style="height: 100%; width: 100%;"
+        unit-id="adunit-f3294a50670ae692"
+        data-id="{{slideContent.id}}"
+        binderror="onAdError">
+      </ad-custom>
+    </view>
+    <view wx:if="{{slideContent.isErrored}}" class="err-text">
+      <text>努力加载中！<br/>等不及了就上滑看看其他的吧～</text>
+    </view>
+    <!-- <view class="cover-up">
+      <image class="cover-up-icon" src="/static/img/top-arrow_icon.png"/>
+      <view class="cover-up-txt">上滑看看其他</view>
+    </view> -->
+  </view>
+</template>
